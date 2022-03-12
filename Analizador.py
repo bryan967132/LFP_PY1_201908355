@@ -78,28 +78,28 @@ class AnalizadorLexico:
             self.estado = 1
             self.buffer += caracter
             self.columna += 1
-            if self.buffer in self.reservadas:
-                self.agregar_Token(self.buffer,self.linea,self.columna,'reservada_' + self.buffer)
-                self.estado = 0
         elif caracter == '-':
-            self.estado = 1
-            self.buffer += caracter
-            self.columna += 1
-        elif caracter == ' ':
             self.estado = 1
             self.buffer += caracter
             self.columna += 1
         else:
             if self.buffer in self.reservadas:
-                pass
-            if self.buffer in self.tipos:
+                self.agregar_Token(self.buffer,self.linea,self.columna,'reservada_' + self.buffer)
+                self.estado = 0
+                self.i -= 1
+            elif self.buffer in self.tipos:
                 self.agregar_Token(self.buffer.strip(),self.linea,self.columna,'tipo_' + self.buffer)
                 self.estado = 0
                 self.i -= 1
             else:
-                self.agregar_Token(self.buffer,self.linea,self.columna,'valor')
-                self.estado = 0
-                self.i -= 1
+                if caracter == ' ':
+                    self.estado = 1
+                    self.buffer += caracter
+                    self.columna += 1
+                else:
+                    self.agregar_Token(self.buffer,self.linea,self.columna,'valor')
+                    self.estado = 0
+                    self.i -= 1
 
     def s2(self):
         '''Estado 2'''
