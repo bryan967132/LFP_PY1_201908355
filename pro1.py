@@ -11,39 +11,67 @@ for i in range(len(tokens)):
     componente = {}
     if tokens[i].tipo == 'reservada_tipo' and tokens[i + 3].lexema == 'etiqueta':
         componente[tokens[i].lexema] = tokens[i + 3].lexema
-        componente[tokens[i + 6].lexema] = tokens[i + 9].lexema
+        for x in range(i,len(tokens)):
+            if tokens[x].lexema == '>':
+                break
+            if tokens[x].tipo == 'reservada_valor':
+                componente[tokens[x].lexema] = tokens[x + 3].lexema
         componentes.append(componente)
+
     if tokens[i].tipo == 'reservada_tipo' and tokens[i + 3].lexema == 'texto':
         componente[tokens[i].lexema] = tokens[i + 3].lexema
-        componente[tokens[i + 6].lexema] = tokens[i + 9].lexema
-        componente[tokens[i + 12].lexema] = tokens[i + 15].lexema
+        for x in range(i,len(tokens)):
+            if tokens[x].lexema == '>':
+                break
+            if tokens[x].tipo == 'reservada_valor':
+                componente[tokens[x].lexema] = tokens[x + 3].lexema
+            if tokens[x].tipo == 'reservada_fondo':
+                componente[tokens[x].lexema] = tokens[x + 3].lexema
         componentes.append(componente)
+    
     if tokens[i].tipo == 'reservada_tipo' and tokens[i + 3].lexema == 'grupo-radio':
         componente[tokens[i].lexema] = tokens[i + 3].lexema
-        componente[tokens[i + 6].lexema] = tokens[i + 9].lexema
-        gruporadio = []
-        for x in range(i + 16,len(tokens)):
-            if tokens[x].lexema == ']':
+        for x in range(i,len(tokens)):
+            if tokens[x].lexema == '>':
                 break
-            if tokens[x].tipo == 'valor':
-                gruporadio.append(tokens[x].lexema)
-        componente[tokens[i + 12].lexema] = gruporadio
+            if tokens[x].tipo == 'reservada_valor':
+                componente[tokens[x].lexema] = tokens[x + 3].lexema
+            if tokens[x].tipo == 'reservada_valores':
+                gruporadio = []
+                for h in range(x,len(tokens)):
+                    if tokens[h].lexema == ']':
+                        break
+                    if tokens[h].tipo == 'valor':
+                        gruporadio.append(tokens[h].lexema)
+                componente[tokens[x].lexema] = gruporadio
         componentes.append(componente)
+
     if tokens[i].tipo == 'reservada_tipo' and tokens[i + 3].lexema == 'grupo-option':
         componente[tokens[i].lexema] = tokens[i + 3].lexema
-        componente[tokens[i + 6].lexema] = tokens[i + 9].lexema
-        gruporadio = []
-        for x in range(i + 16,len(tokens)):
-            if tokens[x].lexema == ']':
+        for x in range(i,len(tokens)):
+            if tokens[x].lexema == '>':
                 break
-            if tokens[x].tipo == 'valor':
-                gruporadio.append(tokens[x].lexema)
-        componente[tokens[i + 12].lexema] = gruporadio
+            if tokens[x].tipo == 'reservada_valor':
+                componente[tokens[x].lexema] = tokens[x + 3].lexema
+            if tokens[x].tipo == 'reservada_valores':
+                grupooption = []
+                for h in range(x,len(tokens)):
+                    if tokens[h].lexema == ']':
+                        break
+                    if tokens[h].tipo == 'valor':
+                        grupooption.append(tokens[h].lexema)
+                componente[tokens[x].lexema] = grupooption
         componentes.append(componente)
+
     if tokens[i].tipo == 'reservada_tipo' and tokens[i + 3].lexema == 'boton':
         componente[tokens[i].lexema] = tokens[i + 3].lexema
-        componente[tokens[i + 6].lexema] = tokens[i + 9].lexema
-        componente[tokens[i + 12].lexema] = tokens[i + 15].lexema
+        for x in range(i,len(tokens)):
+            if tokens[x].lexema == '>':
+                break
+            if tokens[x].tipo == 'reservada_valor':
+                componente[tokens[x].lexema] = tokens[x + 3].lexema
+            if tokens[x].tipo == 'reservada_evento':
+                componente[tokens[x].lexema] = tokens[x + 3].lexema
         componentes.append(componente)
 
 print(componentes)

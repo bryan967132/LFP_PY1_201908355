@@ -6,21 +6,21 @@ formulario ~>> [
     <
         tipo: "texto",
         valor: "Nombre",
-        fondo: "Ingrese nombre"
+        fondo: "valor nombre"
     >,
     <
         tipo: "grupo-radio",
-        nombre: "sexo",
+        valor: "sexo",
         valores: ['Masculino' , 'Femenino']
     >,
     <
         tipo: "grupo-option",
-        nombre: "pais",
+        valor: "pais",
         valores: ['Guatemala' , 'El Salvador' , 'Honduras']
     >,
     <
         tipo: "boton",
         valor: "valor",
-        evento: <entrada>
+        evento: "entrada"
     >
 ]
