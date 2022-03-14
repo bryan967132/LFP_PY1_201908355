@@ -1,9 +1,7 @@
-from logging import PlaceHolder
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from tkinter import *
 from tkinter import ttk
-from turtle import back
 from Componentes import Componentes
 from Analizador import AnalizadorLexico
 
