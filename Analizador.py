@@ -73,6 +73,7 @@ class AnalizadorLexico:
         elif caracter == '$':
             pass
         else:
+            self.columna += 1
             self.agregar_Error(caracter,self.linea,self.columna)
     
     def s1(self,caracter):
@@ -82,9 +83,10 @@ class AnalizadorLexico:
             self.buffer += caracter
             self.columna += 1
         else:
-            self.agregar_Token(self.buffer,self.linea,self.columna,'reservada_' + self.buffer)
-            self.estado = 0
-            self.i -= 1
+            if self.buffer in ['formulario','valor','valores','tipo','fondo','evento']:
+                self.agregar_Token(self.buffer,self.linea,self.columna,'reservada_' + self.buffer)
+                self.estado = 0
+                self.i -= 1
 
     def s2(self):
         '''Estado 2'''
@@ -127,6 +129,10 @@ class AnalizadorLexico:
     def s7(self,caracter):
         '''Estado 7'''
         if caracter.isalpha():
+            self.estado = 7
+            self.buffer += caracter
+            self.columna += 1
+        elif caracter.isdigit():
             self.estado = 7
             self.buffer += caracter
             self.columna += 1

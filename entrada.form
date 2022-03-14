@@ -1,26 +1,26 @@
 formulario ~>> [
     <
-        tipo: "etiqueta",
+        tipo:456 "etiqueta",
         valor: "Nombre:"
     >,
     <
         tipo: "texto",
         valor: "Nombre",
-        fondo: "valor nombre"
+        fondo: "Ingrese nombre"
     >,
     <
         tipo: "grupo-radio",
-        valor: "sexo",
+        valor: "Sexo",
         valores: ['Masculino' , 'Femenino']
     >,
     <
         tipo: "grupo-option",
-        valor: "pais",
+        valor: "Pais502",
         valores: ['Guatemala' , 'El Salvador' , 'Honduras']
     >,
     <
         tipo: "boton",
-        valor: "valor",
+        valor: "Valor",
         evento: "entrada"
     >
 ]
