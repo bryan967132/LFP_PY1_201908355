@@ -54,12 +54,31 @@ class Inicio:
             tk.messagebox.showinfo(message = "No hay un archivo cargado",title = "Archivo")
     
     def chooseReport(self,event):
-        reporte = self.combo.get()
-        if reporte == 'Reporte de Tokens':
-            print('Se hace el Reporte de Tokens en html')
-        elif reporte == 'Reporte de Errores':
-            print('Se hace el Reporte de Errores en html')
-        elif reporte == 'Manual de Usuario':
-            print('Se abre el Manual de Usuario')
-        elif reporte == 'Manual Técnico':
-            print('Se abre el Manual Técnico')
+        contenido = self.areatexto.get('1.0','end').strip()
+        if len(contenido) > 0:
+            reporte = self.combo.get()
+            if reporte == 'Reporte de Tokens':
+                print('Se hace el Reporte de Tokens en html')
+            elif reporte == 'Reporte de Errores':
+                print('Se hace el Reporte de Errores en html')
+            elif reporte == 'Manual de Usuario':
+                print('Se abre el Manual de Usuario')
+            elif reporte == 'Manual Técnico':
+                print('Se abre el Manual Técnico')
+        else:
+            tk.messagebox.showinfo(message = "No hay un archivo cargado",title = "Archivo")
+    
+    def analisisLexico(self):
+        contenido = self.areatexto.get('1.0','end').strip()
+        if len(contenido) > 0:
+            lexico = AnalizadorLexico()
+            lexico.analizar(contenido)
+            self.tokens = lexico.listaTokens
+            if len(self.tokens) > 0:
+                cmp = Componentes()
+                componentes = cmp.getComponentes(self.tokens)
+                print(componentes)
+            else:
+                tk.messagebox.showinfo(message = "Sin tokens detectados",title = "Tokens")
+        else:
+            tk.messagebox.showinfo(message = "No hay un archivo cargado",title = "Archivo")
