@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Formulario</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/logousac.png"/>
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form">
+					<div class="m-b-10">
+						<label id="archivo_entrada_contenido" style="font-size: 10px" class="label-input100"></label>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+		entrada_ordenada = ''
+		entrada = `formulario ~>> [
+    <
+        tipo:45-6 "etiqueta",
+        valor: "Nombre:"
+    >,
+    <
+        tipo: "texto",
+        valor: "Nombre",
+        fondo: "Ingrese nombre"
+    >,
+    <
+        tipo: "grupo-radio",
+        valor: "Sexo",
+        valores: ['Masculino' , 'Femenino']
+    >,
+    <
+        tipo: "grupo-option",
+        valor: "Pais502",
+        valores: ['Guatemala' , 'El Salvador' , 'Honduras']
+    >,
+    <
+        tipo: "boton",
+        valor: "Valor",
+        evento: "entrada"
+    >
+]`
+		for(var i = 0; i < entrada.length; i++) {
+			entrada_ordenada += entrada[i]
+			if(entrada[i] == ' ') {
+				entrada_ordenada += '&nbsp;'
+			}
+			if(entrada[i] == '\n') {
+				entrada_ordenada += '<br>'
+			}
+		}
+		document.getElementById('archivo_entrada_contenido').innerHTML = entrada_ordenada
+	</script>
+</body>
+</html>

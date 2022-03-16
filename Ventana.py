@@ -4,10 +4,13 @@ from tkinter import *
 from tkinter import ttk
 from Componentes import Componentes
 from Analizador import AnalizadorLexico
+from Reportes import Reportes
+from Formulario import Formulario
 
 class Inicio:
     def __init__(self):
         self.tokens = None
+        self.errores = None
 
     def iniciar(self):
         self.raiz = tk.Tk()
@@ -35,6 +38,8 @@ class Inicio:
             file = open(archivo).read()
             self.areatexto.delete('1.0','end')
             self.areatexto.insert(tk.INSERT,file)
+            self.tokens = None
+            self.errores = None
         except:
             self.areatexto.delete('1.0','end')
     
@@ -44,41 +49,39 @@ class Inicio:
             lexico = AnalizadorLexico()
             lexico.analizar(contenido)
             self.tokens = lexico.listaTokens
+            self.errores = lexico.listaErrores
             if len(self.tokens) > 0:
                 cmp = Componentes()
                 componentes = cmp.getComponentes(self.tokens)
-                print(componentes)
+                Formulario().generar(componentes)
+                tk.messagebox.showinfo(message = "¡Análisis realizado exitosamente!",title = "Tokens")
             else:
                 tk.messagebox.showinfo(message = "Sin tokens detectados",title = "Tokens")
         else:
             tk.messagebox.showinfo(message = "No hay un archivo cargado",title = "Archivo")
     
     def chooseReport(self,event):
-        contenido = self.areatexto.get('1.0','end').strip()
-        if len(contenido) > 0:
-            reporte = self.combo.get()
-            if reporte == 'Reporte de Tokens':
-                print('Se hace el Reporte de Tokens en html')
-            elif reporte == 'Reporte de Errores':
-                print('Se hace el Reporte de Errores en html')
-            elif reporte == 'Manual de Usuario':
-                print('Se abre el Manual de Usuario')
-            elif reporte == 'Manual Técnico':
-                print('Se abre el Manual Técnico')
+        reporte = self.combo.get()
+        if reporte == 'Manual de Usuario':
+            print('Se abre el Manual de Usuario')
+        elif reporte == 'Manual Técnico':
+            print('Se abre el Manual Técnico')
         else:
-            tk.messagebox.showinfo(message = "No hay un archivo cargado",title = "Archivo")
-    
-    def analisisLexico(self):
-        contenido = self.areatexto.get('1.0','end').strip()
-        if len(contenido) > 0:
-            lexico = AnalizadorLexico()
-            lexico.analizar(contenido)
-            self.tokens = lexico.listaTokens
-            if len(self.tokens) > 0:
-                cmp = Componentes()
-                componentes = cmp.getComponentes(self.tokens)
-                print(componentes)
+            contenido = self.areatexto.get('1.0','end').strip()
+            if len(contenido) > 0:
+                if reporte == 'Reporte de Tokens':
+                    if self.tokens:
+                        Reportes().repTokens(self.tokens)
+                        tk.messagebox.showinfo(message = "¡Reporte de Tokens generado exitosamente!",title = "Análisis")
+                    else:
+                        tk.messagebox.showinfo(message = "No se ha analizado el archivo de entrada",title = "Análisis")
+                elif reporte == 'Reporte de Errores':
+                    if self.errores:
+                        Reportes().repErrores(self.errores)
+                        tk.messagebox.showinfo(message = "¡Reporte de Errores generado exitosamente!",title = "Análisis")
+                    else:
+                        tk.messagebox.showinfo(message = "No se ha analizado el archivo de entrada",title = "Análisis")
             else:
-                tk.messagebox.showinfo(message = "Sin tokens detectados",title = "Tokens")
-        else:
-            tk.messagebox.showinfo(message = "No hay un archivo cargado",title = "Archivo")
+                tk.messagebox.showinfo(message = "No hay un archivo cargado",title = "Archivo")
+        
+        
