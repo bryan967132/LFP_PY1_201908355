@@ -45,7 +45,7 @@ class AnalizadorLexico:
             self.estado = 6
             self.buffer += caracter
             self.columna += 1
-        elif caracter.isalpha() and self.abierto:
+        elif (caracter.isalpha() or caracter.isdigit()) and self.abierto:
             self.estado = 7
             self.buffer += caracter
             self.columna += 1

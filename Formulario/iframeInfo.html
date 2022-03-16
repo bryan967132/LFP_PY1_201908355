@@ -16,17 +16,14 @@
 				<form class="login100-form validate-form">
 
 					<div class="m-b-10">
-						<label class="label-input100">Danny</label>
-					</div>
-					<div class="m-b-10">
-						<label class="label-input100">Masculino</label>
-					</div>
-					<div class="m-b-10">
-						<label class="label-input100">Guatemala</label>
+						<label id="aquivalainfo" class="label-input100"></label>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+	<script>
+		document.getElementById('aquivalainfo').innerHTML = localStorage.getItem('eslainfo')
+	</script>
 </body>
 </html>

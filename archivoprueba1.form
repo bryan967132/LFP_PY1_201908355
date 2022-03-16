@@ -1,0 +1,40 @@
+formulario ~>> [
+    <
+        tipo: "etiqueta",
+        valor: "Nombre:"
+    >,
+    <
+        tipo: "texto",
+        valor: "Nombre",
+        fondo: "Ingrese Nombre"
+    >,
+    <
+        tipo: "etiqueta",
+        valor: "Apellido:"
+    >,
+    <
+        tipo: "texto",
+        valor: "Apellido",
+        fondo: "Ingrese Apellido"
+    >,
+    <
+        tipo: "grupo-radio",
+        valor: "Nacionalidad",
+        valores: ['Guatemalteco' , 'Mexicano','Espanol','Ruso']
+    >,
+    <
+        tipo: "grupo-option",
+        valor: "Pais de Origen",
+        valores: ['Guatemala' , 'Mexico' , 'Espana', 'Rusia']
+    >,
+    <
+        tipo: "grupo-option",
+        valor: "Edad",
+        valores: ['18' , '20' , '25', '40']
+    >,
+    <
+        tipo: "boton",
+        valor: "Valor",
+        evento: "info"
+    >
+]

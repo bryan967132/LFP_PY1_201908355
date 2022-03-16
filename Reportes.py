@@ -1,3 +1,4 @@
+import webbrowser
 class Reportes:
     def repTokens(self,tokens):
         html = """<!DOCTYPE html>
@@ -70,6 +71,7 @@ class Reportes:
     </body>
 </html>"""
         open('ReporteTokens.html','w').write(html)
+        webbrowser.open('ReporteTokens.html')
     
     def repErrores(self,errores):
         html = """<!DOCTYPE html>
@@ -140,3 +142,4 @@ class Reportes:
     </body>
 </html>"""
         open('ReporteErrores.html','w').write(html)
+        webbrowser.open('ReporteErrores.html')

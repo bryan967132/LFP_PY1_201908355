@@ -1,0 +1,35 @@
+formulario ~>> [
+    <
+        tipo: "etiqueta",
+        valor: "Primer Parcial"
+    >,
+    <
+        tipo: "etiqueta",
+        valor: "Nombres:"
+    >,
+    <
+        tipo: "texto"
+    >,
+    <
+        tipo: "etiqueta",
+        valor: "Apellidos:"
+    >,
+    <
+        tipo: "texto"
+    >,
+    <
+        tipo: "grupo-radio",
+        valor: "Nacionalidad",
+        valores: ['Guatemalteco' , 'Mexicano','Espanol','Ruso']
+    >,
+    <
+        tipo: "boton",
+        valor: "Evento Info",
+        evento: "info"
+    >,
+    <
+        tipo: "boton",
+        valor: "Evento Entrada",
+        evento: "entrada"
+    >
+]

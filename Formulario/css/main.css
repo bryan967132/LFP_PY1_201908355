@@ -213,6 +213,7 @@ iframe {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #d9d9d9;
+  margin-bottom: 40px;
 }
 
 .input100 {
@@ -234,6 +235,7 @@ iframe {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #d9d9d9;
+  margin-bottom: 40px;
 }
 
 .select100 {
@@ -254,10 +256,9 @@ iframe {
   outline: none;
   width: 100%;
   height: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(2,1fr);
   column-gap: 1px;
   
 }

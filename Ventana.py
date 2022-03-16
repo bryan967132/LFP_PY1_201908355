@@ -53,7 +53,7 @@ class Inicio:
             if len(self.tokens) > 0:
                 cmp = Componentes()
                 componentes = cmp.getComponentes(self.tokens)
-                Formulario().generar(componentes)
+                Formulario().generar(componentes,contenido)
                 tk.messagebox.showinfo(message = "¡Análisis realizado exitosamente!",title = "Tokens")
             else:
                 tk.messagebox.showinfo(message = "Sin tokens detectados",title = "Tokens")
@@ -74,13 +74,13 @@ class Inicio:
                         Reportes().repTokens(self.tokens)
                         tk.messagebox.showinfo(message = "¡Reporte de Tokens generado exitosamente!",title = "Análisis")
                     else:
-                        tk.messagebox.showinfo(message = "No se ha analizado el archivo de entrada",title = "Análisis")
+                        tk.messagebox.showinfo(message = "No se encontraron tokens",title = "Análisis")
                 elif reporte == 'Reporte de Errores':
                     if self.errores:
                         Reportes().repErrores(self.errores)
                         tk.messagebox.showinfo(message = "¡Reporte de Errores generado exitosamente!",title = "Análisis")
                     else:
-                        tk.messagebox.showinfo(message = "No se ha analizado el archivo de entrada",title = "Análisis")
+                        tk.messagebox.showinfo(message = "No se encontraron errores",title = "Análisis")
             else:
                 tk.messagebox.showinfo(message = "No hay un archivo cargado",title = "Archivo")
         
