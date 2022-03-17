@@ -75,7 +75,7 @@ class Formulario:
 					<script>
                         function eventoInfo() {
                             try {""" + self.getelementsbyidtext + self.getqueryselectorradio + self.getelementsbyidselect + self.condicion + """ 
-                            }catch (error) {console.log(error)}
+                            }catch (error) {}
                         }
                         function eventoEntrada() {
     						document.getElementById('iframeEvento').innerHTML = '<iframe src="Formulario/iframeEntrada.html" width="100%" height="300"></iframe>'

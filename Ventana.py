@@ -18,7 +18,7 @@ class Inicio:
         self.raiz.resizable(0,0)
         self.raiz.geometry('700x500')
         self.raiz.config(bg = 'white')
-        tk.Label(self.raiz,text = 'Menú',font = ('Comic Sans MS', 30),background='#0059b3',foreground = 'white').pack(fill = tk.X)
+        tk.Label(self.raiz,text = 'Generación de Formularios',font = ('Comic Sans MS', 30),background='#0059b3',foreground = 'white').pack(fill = tk.X)
         self.areatexto = tk.Text(self.raiz,font = ('Comic Sans MS',11),width = 45,height = 12,borderwidth = 5,fg = '#0060B2')
         self.areatexto.place(x = 50,y = 100)
         
@@ -34,7 +34,8 @@ class Inicio:
     
     def chooseFile(self):
         try:
-            archivo = askopenfilename()
+            formatos = (("form files","*.form"),("All files", "*.*"))
+            archivo = askopenfilename(filetypes = formatos)
             file = open(archivo).read()
             self.areatexto.delete('1.0','end')
             self.areatexto.insert(tk.INSERT,file)
