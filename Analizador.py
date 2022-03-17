@@ -87,6 +87,10 @@ class AnalizadorLexico:
                 self.agregar_Token(self.buffer,self.linea,self.columna,'reservada_' + self.buffer)
                 self.estado = 0
                 self.i -= 1
+            elif self.buffer in ['entrada','info']:
+                self.agregar_Token(self.buffer,self.linea,self.columna,'evento_' + self.buffer)
+                self.estado = 0
+                self.i -= 1
 
     def s2(self):
         '''Estado 2'''
@@ -145,6 +149,10 @@ class AnalizadorLexico:
             self.buffer += caracter
             self.columna += 1
         elif caracter == ':':
+            self.estado = 7
+            self.buffer += caracter
+            self.columna += 1
+        elif caracter == '%':
             self.estado = 7
             self.buffer += caracter
             self.columna += 1

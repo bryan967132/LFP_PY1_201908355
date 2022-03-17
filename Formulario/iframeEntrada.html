@@ -24,39 +24,39 @@
 	<script>
 		entrada_ordenada = ''
 		entrada = `formulario ~>> [
-    <
+    <()=/
         tipo: "etiqueta",
-        valor: "Primer Parcial"
+        valor: "Primer Proyecto"
     >,
     <
-        tipo: "etiqueta",
-        valor: "Nombres:"
+        tipo: "texto",
+        fondo: "Ingrese Nombre"
     >,
     <
-        tipo: "texto"
-    >,
-    <
-        tipo: "etiqueta",
-        valor: "Apellidos:"
-    >,
-    <
-        tipo: "texto"
+        tipo: "texto",
+        valor: "Connors",
+        fondo: "Ingrese Apellido"
     >,
     <
         tipo: "grupo-radio",
-        valor: "Nacionalidad",
-        valores: ['Guatemalteco' , 'Mexicano','Espanol','Ruso']
+        valor: "Avance del Proyecto",
+        valores: ['20 %','40 %','60 %','80 %','100 %']
+    >,
+    <
+        tipo: "grupo-option",
+        valor: "Estado de Entrega",
+        valores: ['Entregado','Pendiente']
+    >
+    <
+        tipo: "boton",
+        valor: "Evento Entrada",
+        evento: "entrada"
     >,
     <
         tipo: "boton",
         valor: "Evento Info",
         evento: "info"
-    >,
-    <
-        tipo: "boton",
-        valor: "Evento Entrada",
-        evento: "entrada"
-    >
+    >    
 ]`
 		for(var i = 0; i < entrada.length; i++) {
 			entrada_ordenada += entrada[i]

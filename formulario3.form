@@ -1,0 +1,36 @@
+formulario ~>> [
+    <()=/
+        tipo: "etiqueta",
+        valor: "Primer Proyecto"
+    >,
+    <
+        tipo: "texto",
+        fondo: "Ingrese Nombre"
+    >,
+    <
+        tipo: "texto",
+        valor: "Connors",
+        fondo: "Ingrese Apellido"
+    >,
+    <
+        tipo: "grupo-radio",
+        valor: "Avance del Proyecto",
+        valores: ['20 %','40 %','60 %','80 %','100 %']
+    >,
+    <
+        tipo: "grupo-option",
+        valor: "Estado de Entrega",
+        valores: ['Entregado','Pendiente']
+    >
+    <
+        tipo: "boton",
+        valor: "Evento Entrada",
+        evento: "entrada"
+    >,
+    <
+        tipo: "boton",
+        valor: "Evento Info",
+        evento: "info"
+    >    
+]
+

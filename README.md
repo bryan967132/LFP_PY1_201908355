@@ -1,10 +1,12 @@
-# -IPC1-1S-2021-A
-## Comandos de GitHub
-| Comando | Descripcion	|
-|---------|-------------|
-| git clone direccion_repositorio | Realiza la clonación de un repositorio a nuestra computadora |
-| git pull | Actualiza los cambios realizados en el repositorio en el ambiente local |
-| git add . --all | Agrega todos los cambios al repositorio |
-| git commit -m "Mensaje de actualizacion" | Realiza un commit, junto con el mensaje de dicho cambio |
-| git push | Sube los cambios al repositorio |
-| git status | Mira el estado de los cambios realizados |
+| Descripción                               | Patrón                                          | Expresión regular     | ejemplos                      |
+| ----------------------------------------- | ----------------------------------------------- | --------------------- | ----------------------------- |
+| Definicion de palabras reservadas         | una letra seguida de una o más letras o números | [a-z]\+               | formulario,valor,tipo,valores,fondo,evento |
+| Valores asignados                         | Al menos un dígito                              | [A-Za-z][0-9a-za-z]\* | grupo-radio,grupo-option,     |
+| Signo menor que                           | Un caracter '<'                                 | '<'                   | <                             |
+| Signo mayor que                           | Un caracter '>'                                 | '>'                   | >                             |
+| Corchete izquierdo                        | Un caracter '['                                 | '['                   | [                             |
+| Corchete derecho                          | Un caracter ']'                                 | ']'                   | ]                             |
+| Dos puntos                                | Un caracter ':'                                 | ':'                   | ;                             |
+| Coma                                      | Un caracter ','                                 | ','                   | ,                             |
+| Comillas                                  | Un caracter '"'                                 | '"'                   | "                             |
+| Comilla simple                            | Un caracter '''                                 | '''                   | '                             |
