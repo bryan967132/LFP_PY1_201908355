@@ -7,6 +7,7 @@
 | Reservada valores                         | Palabra valores                                 | valores               | valores                       |
 | Reservada evento                          | Palabra evento                                  | evento                | evento                        |
 | Valores asignados                         | Secuencia de caracteres alfanuméricos           | [A-Za-z][0-9a-za-z]\* | etiqueta, Cadena1             |
+| Signo virgulilla                          | Un caracter '~'                                 | '~'                   | ~                             |
 | Signo menor que                           | Un caracter '<'                                 | '<'                   | <                             |
 | Signo mayor que                           | Un caracter '>'                                 | '>'                   | >                             |
 | Corchete izquierdo                        | Un caracter '['                                 | '['                   | [                             |
