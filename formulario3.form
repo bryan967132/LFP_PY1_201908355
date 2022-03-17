@@ -25,12 +25,11 @@ formulario ~>> [
     <
         tipo: "boton",
         valor: "Evento Entrada",
-        evento: "entrada"
+        evento: <entrada>
     >,
     <
         tipo: "boton",
         valor: "Evento Info",
-        evento: "info"
+        evento: <info>
     >    
 ]
-

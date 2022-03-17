@@ -1,3 +1,4 @@
+import webbrowser
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from tkinter import *
@@ -63,9 +64,9 @@ class Inicio:
     def chooseReport(self,event):
         reporte = self.combo.get()
         if reporte == 'Manual de Usuario':
-            print('Se abre el Manual de Usuario')
+            webbrowser.open('Manual De Usuario.pdf')
         elif reporte == 'Manual Técnico':
-            print('Se abre el Manual Técnico')
+            webbrowser.open('Manual Técnico.pdf')
         else:
             contenido = self.areatexto.get('1.0','end').strip()
             if len(contenido) > 0:
